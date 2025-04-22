@@ -32,7 +32,7 @@ void *ft_monitor(t_philo *philos)
 				pthread_mutex_unlock(&philos[i].meal_mutex);
 				return NULL;
 			}
-			if (ft_gettime() - philos[i].last_eat_time > table->time_to_die)
+			if (ft_gettime() - philos[i].last_eat_time >= table->time_to_die)
 			{
 				pthread_mutex_lock(&table->death_mutex);
 				ft_print(NULL, philos[i], IS_DEAD);
